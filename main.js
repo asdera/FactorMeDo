@@ -1,5 +1,5 @@
 function harambe(a, b, c, d) {
-    alert("( " + a + "x + " + b + " ) * ( " + c + "x + " + d + " )");
+    $(".answer").append("<p>( " + a + "x + " + b + " ) * ( " + c + "x + " + d + " )</p>");
 }
 
 function cheesemachine(str) {
@@ -15,6 +15,7 @@ function dutycalls() {
     /**(a+b)(c+d)
      * ac+(ad+bc)+bd
     **/
+    $(".answer").empty();
     var x = cheesemachine("a");
     var y = cheesemachine("b");
     var z = cheesemachine("c");
