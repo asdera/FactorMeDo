@@ -1,5 +1,21 @@
+function greatatcod(m, n) {
+    if (!n) {
+        return m;
+    }
+    return greatatcod(n, m % n);
+    //test body.append
+};
+
 function harambe(a, b, c, d) {
-    $(".answer").append("<p>( " + a + "x + " + b + " ) * ( " + c + "x + " + d + " )</p>");
+    var cf = 1;
+    var ab = greatatcod(a, b);
+    var cd = greatatcod(c, d);
+    cf = cf * ab * cd;
+    if (cf == 1) {
+        $(".answer").append("<p>( " + a + "x + " + b + " ) * ( " + c + "x + " + d + " )</p>");
+    } else {
+        $(".answer").append("<p>" + cf + " ( " + (a / ab) + "x + " + (b / ab) + " ) * ( " + (c / cd) + "x + " + (d / cd) + " )</p>");
+    }
 }
 
 function cheesemachine(str) {
@@ -36,10 +52,13 @@ function dutycalls() {
             }
         }
     }
+    if ($(".answer").text() == "") {
+        $(".answer").append("Unfactorable! Check Your Inputs!");
+    }
 }
 function factorfam(num) {
     var numarray = [0]
-    for (i = 1; i <= num; i++) {
+    for (i = 1; i <= Math.abs(num); i++) {
         if (num % i == 0) {
             numarray.push(i);
         }
